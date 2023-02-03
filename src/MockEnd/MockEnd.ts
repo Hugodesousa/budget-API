@@ -14,7 +14,7 @@ class MockEnd {
     this.usersList = [];
     this.productsList = [];
   }
-
+  // refatorar para o axios ficar generico
   public async findAllUsers(): Promise<void | IUsers[]> {
    const req = await axios.get(this.usersURL)
     .then((list) => {
