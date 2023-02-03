@@ -12,7 +12,7 @@ class MockEnd {
     this.usersList = [];
   }
 
-  public async findAllUsers() {
+  public async findAllUsers(): Promise<void | IUsers[]> {
    const req = await axios.get(this.usersURL)
     .then((list) => {
       this.usersList.push(...list.data)
@@ -21,7 +21,7 @@ class MockEnd {
     .catch((error) => {
       console.log(error);
     })
-    return req;
+    return req as IUsers[];
   }
 
   public async findAllProducts() {

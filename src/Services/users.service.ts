@@ -1,4 +1,4 @@
-import Iusers from "../Interfaces/IUsers";
+import IUsers from "../Interfaces/IUsers";
 import MockEnd from "../MockEnd/MockEnd";
 
 class UsersService {
@@ -8,9 +8,9 @@ class UsersService {
     this.mockEnd = new MockEnd()
   }
 
-  public async findAllUsers()  {
+  public async findAllUsers(): Promise<IUsers[] | void>  {
     const usersList = await this.mockEnd.findAllUsers(); 
-    return usersList;
+    return usersList as IUsers[];
   }
 }
 
