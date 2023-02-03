@@ -15,8 +15,12 @@ class UsersController {
   }
 
   public async findAllUsers() {
-    const allUsers = await this.usersService.findAllUsers();
-    return this.res.status(200).json(allUsers);
+    try {
+      const allUsers = await this.usersService.findAllUsers();
+      return this.res.status(200).json(allUsers);
+    } catch (error) {
+      console.log(error);   
+    }
   }
 
 }

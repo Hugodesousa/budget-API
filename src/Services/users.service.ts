@@ -1,7 +1,16 @@
+import Iusers from "../Interfaces/IUsers";
+import MockEnd from "../MockEnd/MockEnd";
+
 class UsersService {
-  
+  private mockEnd: MockEnd;
+
+  constructor() {
+    this.mockEnd = new MockEnd()
+  }
+
   public async findAllUsers()  {
-    console.log('test'); 
+    const usersList = await this.mockEnd.findAllUsers(); 
+    return usersList;
   }
 }
 
