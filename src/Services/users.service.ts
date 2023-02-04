@@ -10,6 +10,7 @@ class UsersService {
 
   public async findAllUsers(): Promise<IUsers[] | void>  {
     const usersList = await this.mockEnd.findAllUsers(); 
+    // const user = new User(usersList)
     return usersList as IUsers[];
   }
 }

@@ -14,29 +14,26 @@ class MockEnd {
     this.usersList = [];
     this.productsList = [];
   }
-  // refatorar para o axios ficar generico
-  public async findAllUsers(): Promise<void | IUsers[]> {
-   const req = await axios.get(this.usersURL)
-    .then((list) => {
-      this.usersList.push(...list.data)
-      return this.usersList;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-    return req as IUsers[];
-  }
 
-  public async findAllProducts() {
-    const req = await axios.get(this.productsURL)
-      .then((productsList) => {
-        this.productsList.push(...productsList.data)
-        return this.productsList;
+  private async funcAxios(url: string): Promise<IUsers[] | IProducts[]> {
+    const req = await axios.get(url)
+      .then((list) => {
+        return list.data;
       })
       .catch((error) => {
         console.log(error);
       });
-      return req as IProducts[];
+    return req as IUsers[] | IProducts[];
+  }
+
+  public async findAllUsers(): Promise<IUsers[]> {
+    const usersList = await this.funcAxios(this.usersURL)
+    return usersList as IUsers[];
+  }
+
+  public async findAllProducts(): Promise<IProducts[]> {
+    const productsList = await this.funcAxios(this.productsURL)
+    return productsList as IProducts[];
   }
 }
 
