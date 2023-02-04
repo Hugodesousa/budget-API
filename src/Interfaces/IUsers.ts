@@ -1,6 +1,6 @@
-interface IUsers {
-  id: number;
-  name: string;
+import IRequest from "./IRequest";
+
+interface IUsers extends IRequest {
   tax: number;
 }
 
