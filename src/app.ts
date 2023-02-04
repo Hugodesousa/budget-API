@@ -12,8 +12,6 @@ app.use(userRoutes);
 app.use(productsRoutes);
 app.use(budgetRoutes);
 
-
-// app.use(GenericError);
 app.use(GenericError);
 
 export default app;

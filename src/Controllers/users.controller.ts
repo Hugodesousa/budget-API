@@ -20,10 +20,9 @@ class UsersController {
       const allUsers: void | IUsers[] = await this.usersService.findAllUsers();
       return this.res.status(200).json(allUsers);
     } catch (error) {
-      this.next(error)   
+      this.next(error)
     }
   }
-
 }
 
 export default UsersController;

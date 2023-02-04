@@ -31,7 +31,7 @@ class BudgetService {
     const productPromises = this.productIdList
       .map(productId => this.mockEnd.findProduct(productId));
     const productLists = await Promise.all(productPromises);
-    
+
     productLists.forEach((product) => {
       if (product.length === 0) {
         throw new MyNewError(404, 'Product Not Found');
@@ -45,7 +45,6 @@ class BudgetService {
     await this.getUser();
     const myUser = this.user[0];
     let value = 0;
-    console.log(this.productList);
 
     this.productList.forEach((product) => {
       value += product.price;

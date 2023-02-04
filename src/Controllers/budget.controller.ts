@@ -11,9 +11,8 @@ class BudgetController {
     this.req = req;
     this.res = res;
     this.next = next;
-    const id = Number(this.req.params.id) ;
-    const { productList } = this.req.body; 
-    
+    const id = Number(this.req.params.id);
+    const { productList } = this.req.body;
     this.budgetService = new BudgetService(id, productList);
   }
 
