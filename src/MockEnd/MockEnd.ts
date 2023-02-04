@@ -37,7 +37,7 @@ class MockEnd {
   }
 
   public async findUser(userId: number): Promise<IUsers[]> {
-    const user = await this.funcAxios(`${this.usersList}?id_eq=${userId}`)
+    const user = await this.funcAxios(`${this.usersURL}?id_eq=${userId}`)
     return user as IUsers[];
   }
 
