@@ -1,4 +1,4 @@
-import User from "../Domains/User";
+import { MyNewError } from "../err/GenericError";
 import IProducts from "../Interfaces/IProducts";
 import IUsers from "../Interfaces/IUsers";
 import MockEnd from "../MockEnd/MockEnd";
@@ -19,10 +19,10 @@ class BudgetService {
     this.user = [];
   }
 
-  private async getUser(): Promise<Error | undefined> {
+  private async getUser(): Promise<Error | void> {
     const getUser = await this.mockEnd.findUser(this.userId);
     if (getUser.length === 0) {
-      return new Error('User Not Found')
+      throw new MyNewError(404, 'User Not Found')
     }
     this.user.push(getUser[0]);
   }
@@ -34,18 +34,19 @@ class BudgetService {
 
     productLists.forEach((product) => {
       if (product.length === 0) {
-        return new Error('Product Not Found');
+        throw new MyNewError(404, 'Product Not Found');
       }
       this.productList.push(...product);
     });
   }
 
   public async calculateBudget() {
-    await this.getProducts();
-    await this.getUser();
+
+      await this.getProducts();
+      await this.getUser();
+
     const myUser = this.user[0];
     let value = 0;
-    console.log(this.productList);
 
     this.productList.forEach((product) => {
       value += product.price;

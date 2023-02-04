@@ -11,9 +11,8 @@ class BudgetController {
     this.req = req;
     this.res = res;
     this.next = next;
-    const id = Number(this.req.params.id) ;
-    const { productList } = this.req.body; 
-    
+    const id = Number(this.req.params.id);
+    const { productList } = this.req.body;
     this.budgetService = new BudgetService(id, productList);
   }
 
@@ -22,7 +21,7 @@ class BudgetController {
       const budget: number = await this.budgetService.calculateBudget();
       return this.res.status(200).json({ valorTotal: budget });
     } catch (error) {
-      return this.res.status(400).json(error)
+      this.next(error)
     }
   }
 
