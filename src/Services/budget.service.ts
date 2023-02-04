@@ -41,8 +41,10 @@ class BudgetService {
   }
 
   public async calculateBudget() {
-    await this.getProducts();
-    await this.getUser();
+
+      await this.getProducts();
+      await this.getUser();
+
     const myUser = this.user[0];
     let value = 0;
 

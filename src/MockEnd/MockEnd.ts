@@ -21,7 +21,7 @@ class MockEnd {
       .then((list) => {
         return list.data;
       })
-      .catch(() => {
+      .catch((error) => {
         throw new MyNewError(404, 'invalidURL');
       });
     return req;

@@ -13,6 +13,7 @@ export const GenericError: ErrorRequestHandler = (
   error,
   _req,
   res,
+  _next,
 ) => {
   const { status, message } = error as MyNewError;
   console.error('Error --------->', error);
