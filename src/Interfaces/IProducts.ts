@@ -1,6 +1,6 @@
-interface IProducts {
-  id: number;
-  name: string;
+import IRequest from "./IRequest";
+
+interface IProducts extends IRequest {
   price: number;
 }
 
