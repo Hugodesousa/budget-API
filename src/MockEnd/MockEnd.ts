@@ -22,7 +22,7 @@ class MockEnd {
         return list.data;
       })
       .catch(() => {
-        throw new MyNewError(400, 'InvalidURL');
+        throw new MyNewError(404, 'invalidURL');
       });
     return req;
   }
