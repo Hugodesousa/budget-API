@@ -3,16 +3,10 @@ import BudgetService from '../Services/budget.service';
 import Controller from './controller';
 
 class BudgetController extends Controller {
-  // private req: Request;
-  // private res: Response;
-  // private next: NextFunction;
   private budgetService: BudgetService;
 
   constructor(req: Request, res: Response, next: NextFunction) {
     super(req, res, next)
-    // this.req = req;
-    // this.res = res;
-    // this.next = next;
     const id = Number(this.req.params.id);
     const { productList } = this.req.body;
     this.budgetService = new BudgetService(id, productList);
