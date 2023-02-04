@@ -15,7 +15,7 @@ class MockEnd {
     this.productsList = [];
   }
 
-  private async funcAxios(url: string): Promise<IUsers[] | IProducts[]> {
+  private async funcAxios(url: string) {
     const req = await axios.get(url)
       .then((list) => {
         return list.data;
@@ -23,7 +23,7 @@ class MockEnd {
       .catch((error) => {
         console.log(error);
       });
-    return req as IUsers[] | IProducts[];
+    return req;
   }
 
   public async findAllUsers(): Promise<IUsers[]> {
@@ -34,6 +34,16 @@ class MockEnd {
   public async findAllProducts(): Promise<IProducts[]> {
     const productsList = await this.funcAxios(this.productsURL)
     return productsList as IProducts[];
+  }
+
+  public async findUser(userId: number): Promise<IUsers[]> {
+    const user = await this.funcAxios(`${this.usersList}?id_eq=${userId}`)
+    return user as IUsers[];
+  }
+
+  public async findProduct(productId: number): Promise<IProducts[]> {
+    const product = await this.funcAxios(`${this.productsURL}?id_eq=${productId}`)
+    return product as IProducts[];
   }
 }
 
