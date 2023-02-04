@@ -20,7 +20,7 @@ class ProductsController {
       const allProducts: void | IProducts[] = await this.productsService.findAllProducts();
       return this.res.status(200).json(allProducts);
     } catch (error) {
-      console.log(error);
+      this.next(error)
     }
   }
 

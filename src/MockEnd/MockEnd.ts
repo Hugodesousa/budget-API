@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { MyNewError } from '../err/GenericError';
 import IProducts from '../Interfaces/IProducts';
 import IUsers from '../Interfaces/IUsers';
 
@@ -20,8 +21,8 @@ class MockEnd {
       .then((list) => {
         return list.data;
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        throw new MyNewError(400, 'InvalidURL');
       });
     return req;
   }
