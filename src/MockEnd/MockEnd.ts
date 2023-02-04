@@ -4,16 +4,12 @@ import IProducts from '../Interfaces/IProducts';
 import IUsers from '../Interfaces/IUsers';
 
 class MockEnd {
- private usersURL: string;
- private productsURL: string;
- private usersList: IUsers[];
- private productsList: IProducts[];
+  private usersURL: string;
+  private productsURL: string;
 
   constructor() {
     this.usersURL = 'https://mockend.com/juunegreiros/BE-test-api/users';
     this.productsURL = 'https://mockend.com/juunegreiros/BE-test-api/products';
-    this.usersList = [];
-    this.productsList = [];
   }
 
   private async funcAxios(url: string) {
@@ -21,7 +17,7 @@ class MockEnd {
       .then((list) => {
         return list.data;
       })
-      .catch((error) => {
+      .catch(() => {
         throw new MyNewError(404, 'invalidURL');
       });
     return req;
