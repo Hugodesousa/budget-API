@@ -22,7 +22,7 @@ class BudgetController {
       const budget: number = await this.budgetService.calculateBudget();
       return this.res.status(200).json({ valorTotal: budget });
     } catch (error) {
-      return this.res.status(400).json(error)
+      this.next(error)
     }
   }
 

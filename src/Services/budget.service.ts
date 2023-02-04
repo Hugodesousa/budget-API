@@ -1,4 +1,3 @@
-import User from "../Domains/User";
 import IProducts from "../Interfaces/IProducts";
 import IUsers from "../Interfaces/IUsers";
 import MockEnd from "../MockEnd/MockEnd";
