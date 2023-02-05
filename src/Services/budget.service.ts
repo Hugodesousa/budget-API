@@ -40,7 +40,7 @@ class BudgetService {
     });
   }
 
-  public async calculateBudget() {
+  public async calculateBudget(): Promise<number> {
 
       await this.getProducts();
       await this.getUser();
