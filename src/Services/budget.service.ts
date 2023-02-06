@@ -42,8 +42,8 @@ class BudgetService {
 
   public async calculateBudget(): Promise<number> {
 
-      await this.getProducts();
-      await this.getUser();
+    await this.getProducts();
+    await this.getUser();
 
     const myUser = this.user[0];
     let value = 0;
@@ -51,7 +51,8 @@ class BudgetService {
     this.productList.forEach((product) => {
       value += product.price;
     })
-
+    console.log('value -->', this.productList);
+    
     const budget = (value / 100) * myUser.tax
     return budget;
   }
