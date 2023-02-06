@@ -13,7 +13,7 @@ class BudgetService {
   constructor(userId: number, productsIdList: number[]) {
 
     this.mockEnd = new MockEnd();
-    this.productIdList = productsIdList.map(Number);
+    this.productIdList = productsIdList;
     this.userId = userId;
     this.productList = [];
     this.user = [];

@@ -8,8 +8,9 @@ class BudgetController extends Controller {
   constructor(req: Request, res: Response, next: NextFunction) {
     super(req, res, next)
     const id = Number(this.req.params.id);
-    const { productList } = this.req.body;
-    this.budgetService = new BudgetService(id, productList);
+    const productList = this.req.query.productList as string;
+    const myProductList = productList.split(",").map(Number);
+    this.budgetService = new BudgetService(id, myProductList);
   }
 
   public async calculateBudget() {

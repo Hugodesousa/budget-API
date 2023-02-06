@@ -1,0 +1,56 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "localhost:3001",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/users/list": {
+      "get": {
+        "description": "Retorna uma lista com todos os usuários",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/products/list": {
+      "get": {
+        "description": "Retorna uma lista com todos os produtos",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/budget/{id}": {
+      "get": {
+        "description": "Retorna um objeto contendo o valor do orçamento de acordo com a taxa do usuário",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Id de um usuário cadastrado",
+            "type": "string",
+            "example": "1"
+          },
+          {
+            "name": "productList",
+            "in": "query",
+            "required": true,
+            "description": "Ids de produtos cadastrados",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    }
+  }
+}
