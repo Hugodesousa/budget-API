@@ -14,7 +14,7 @@ class BudgetController extends Controller {
 
   public async calculateBudget() {
     try {
-      const budget: number = await this.budgetService.calculateBudget();
+      const budget: string = await this.budgetService.calculateBudget();
       return this.res.status(200).json({ valorTotal: budget });
     } catch (error) {
       this.next(error)
