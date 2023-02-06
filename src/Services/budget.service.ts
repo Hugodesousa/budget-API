@@ -28,16 +28,17 @@ class BudgetService {
   }
 
   private async getProducts(): Promise<void | Error> {
-    const productPromises = this.productIdList
-      .map(productId => this.mockEnd.findProduct(productId));
-    const productLists = await Promise.all(productPromises);
+    const allProducts = await this.mockEnd.findAllProducts();
 
-    productLists.forEach((product) => {
-      if (product.length === 0) {
+    this.productIdList.forEach((productId) => {
+      const product = allProducts
+        .find(product => product.id === productId);
+      if (!product) {
         throw new MyNewError(404, 'Product Not Found');
       }
-      this.productList.push(...product);
+      this.productList.push(product);
     });
+
   }
 
   public async calculateBudget(): Promise<number> {
@@ -54,7 +55,7 @@ class BudgetService {
     console.log('value -->', this.productList);
     
     const budget = (value / 100) * myUser.tax
-    return budget;
+    return budget.toFixed(2);
   }
 }
 
