@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const swaggerFile = require('../swagger_output.json');
+// const swaggerFile = require('../swagger_output.json');
 import express from 'express';
 import 'express-async-errors';
 import swaggerUi from 'swagger-ui-express'
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(userRoutes);
 app.use(productsRoutes);
 app.use(budgetRoutes);
-app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
+// app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 app.use(GenericError);
 
 export default app;

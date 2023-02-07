@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha -r ts-node/register tests/*.test.ts --exit -t 60000",
     "test:coverage": "nyc mocha -r ts-node/register tests/*.test.ts --exit -t 60000",
-    "start": "npm run build && node ./dist/src/server.js",
+    "start": "node dist/src/server.js",
     "dev": "tsnd src/server.ts",
     "build": "tsc",
     "lint": "eslint --ext .ts .",
