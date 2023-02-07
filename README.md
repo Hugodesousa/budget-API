@@ -5,7 +5,7 @@
 # Contexto
  
 
-Esta API fornece uma solução para o gerenciamento de informações de produtos e usuários cadastrados em um mockend que reprenta um banco de dados ficticio, a aplicação foi desenvolvida utilizando Express, Node.js e TypeScript. 
+Esta API fornece uma solução para o gerenciamento de informações de produtos e usuários cadastrados em um mockend que representa um banco de dados fictício, a aplicação foi desenvolvida utilizando Express, Node.js e TypeScript utilizando conceitos de orientação a objetos e arquitetura MSC. Além disso, foram criados testes unitários com a biblioteca Mocha.
 
 
 A documentação construída no Swagger está disponível na rota "/doc" para uma melhor compreensão e utilização da API.
