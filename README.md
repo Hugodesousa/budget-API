@@ -10,7 +10,7 @@ Esta API fornece uma solução para o gerenciamento de informações de produtos
 
 A documentação construída no Swagger está disponível na rota "/doc" para uma melhor compreensão e utilização da API.
 
-[API Swagger.](https://talker-manager-production.up.railway.app/doc/)
+[API Swagger.](https://budget-api-production.up.railway.app/doc/)
 
 
 ### Hugo de Sousa Silva
