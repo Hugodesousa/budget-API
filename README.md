@@ -31,11 +31,14 @@ linkedin: https://www.linkedin.com/in/hugo-de-sousa-dev/
 * Clone o repositorio com o comando:
 > git clone git@github.com:Hugodesousa/budget-API.git
 
-* Instale as dependências com (comando utilizado dentro do container docker) :
+* Instale as dependências com:
 > npm install
 
-* Execute a aplicação com (comando utilizado dentro do container docker) :
+* Execute a aplicação com:
  > npm start ou npm run dev
+
+ * Execute os testes unitarios com:
+ > npm test ou npm run test:coverage
  
 * Acesse o endereço no seu navegador para testar as rodas da aplicação :
  > http://localhost:3001/doc
